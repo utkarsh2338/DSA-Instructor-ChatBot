@@ -1,5 +1,5 @@
 // --- CONFIGURATION ---
-const API_KEY = "AIzaSyAoevTMQGwK6Yg2gmHa7xtlk6cYPiOxJmU"; // Your API Key
+const API_KEY = "AIzaSyDjFZ1p1pPS8cA8cVFyF-4bCydr8EuUfDk"; // Your API Key
 const MODEL_NAME = "gemini-1.5-flash";
 
 // --- DOM ELEMENT REFERENCES ---
@@ -99,10 +99,20 @@ async function streamBotResponse() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            contents: history,
-            systemInstruction: { /* ... */ },
-            generationConfig: { /* ... */ },
-        }),
+    contents: history,
+    systemInstruction: {
+        role: "system",
+        parts: [{ text: "You are a helpful DSA instructor. Answer as concisely and clearly as possible, with examples and code in C++ where applicable." }]
+    },
+    generationConfig: {
+        temperature: 0.7,
+        topK: 1,
+        topP: 1,
+        maxOutputTokens: 1024,
+        stopSequences: []
+    }
+}),
+
     });
     // ... all the streaming logic ...
     // --- THIS PART IS UNCHANGED ---
