@@ -1,8 +1,8 @@
-// --- CONFIGURATION ---
+
 const API_KEY = "AIzaSyDjFZ1p1pPS8cA8cVFyF-4bCydr8EuUfDk"; // Your API Key
 const MODEL_NAME = "gemini-2.5-flash";
 
-// --- DOM ELEMENT REFERENCES ---
+
 const chatBox = document.getElementById("chat-box");
 const chatForm = document.getElementById("chat-form");
 const userInput = document.getElementById("user-input");
@@ -10,13 +10,9 @@ const thinkingIndicator = document.getElementById("thinking-indicator");
 const newChatBtn = document.getElementById("new-chat-btn"); // NEW: Get the button
 
 // --- CONVERSATION HISTORY ---
-let history = []; // Use 'let' so we can reassign it
+let history = []; 
 
-// --- CORE FUNCTIONS ---
 
-/**
- * NEW: Adds the initial welcome message to the chatbox.
- */
 function showWelcomeMessage() {
   chatBox.innerHTML = `
         <div class="message bot-message">
@@ -27,11 +23,9 @@ function showWelcomeMessage() {
     `;
 }
 
-/**
- * NEW: Starts a new chat session.
- */
+
 function startNewChat() {
-  // Ask for confirmation before clearing
+  
   if (
     confirm(
       "Are you sure you want to start a new chat? Your current conversation will be lost."
